@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
-COMPILER=gcc
-NASM=nasm
+
+# Para fins de saúde mental do programador não foi feita a variação para windows.
+# O programa requere a versão 32 bits do interpretador lua, tentar carregar a biblioteca na versão 64 bits não vai funcionar.
+# Testado no arch linux, compilado pelo clang pois o mesmo tem o parâmetro target, o qual possibilita mais facilmente realizar a compilação 32 bits (i386)
+# O mesmo contém uma pequena suíte de testes para testar a binding no lado C e no lado Lua
 
 NASMFLAGS="-felf32 -DELF_TYPE"
 CFLAGS="--target=i386-pc-linux-gnu -g -lc"
@@ -28,8 +31,9 @@ case "$1" in
     build) build;;
     test) test;;
     clean) clean;;
-    *) echo "Comando não especificado ou inválido";;
+    *) echo  \
+"Comando não especificado ou inválido
+Comandos disponívels: build test clean"
+    exit 1
+;;
 esac
-
-
-exit 1
