@@ -4,7 +4,7 @@ segment .text
 global func_sum, func_sub, func_mul, func_div
 
 func_sum:
-    push ebp ; em 64 bit ebp vira ebp, motivo? Lua não reconhece as libs 32 bits e não iria funcionar
+    push ebp
     mov ebp, esp
     mov eax, [ebp + 8]
     add eax, [ebp + 12]
