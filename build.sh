@@ -10,7 +10,7 @@ CFLAGS="-g -lc"
 
 build() {
     nasm $NASMFLAGS ops.asm
-    nasm $NASMFLAGS asm_io.asm
+    # nasm $NASMFLAGS asm_io.asm
     clang $CFLAGS ops.o lualib.c -fPIC --shared -o arith.so
 }
 
