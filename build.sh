@@ -5,12 +5,12 @@
 # Testado no arch linux, compilado pelo clang pois o mesmo tem o parâmetro target, o qual possibilita mais facilmente realizar a compilação 32 bits (i386)
 # O mesmo contém uma pequena suíte de testes para testar a binding no lado C e no lado Lua
 
-NASMFLAGS="-felf32 -DELF_TYPE"
-CFLAGS="--target=i386-pc-linux-gnu -g -lc"
+NASMFLAGS="-felf64 -DELF_TYPE"
+CFLAGS="-g -lc"
 
 build() {
     nasm $NASMFLAGS ops.asm
-    nasm $NASMFLAGS asm_io.asm
+    # nasm $NASMFLAGS asm_io.asm
     clang $CFLAGS ops.o lualib.c -fPIC --shared -o arith.so
 }
 
@@ -20,7 +20,7 @@ test() {
     echo "[ * ] Testando módulo c"
     ./tester
     echo "[ * ] Testando módulo lua"
-    lua32 test.lua
+    lua5.3 test.lua
 }
 
 clean() {
