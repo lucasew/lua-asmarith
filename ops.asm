@@ -6,8 +6,8 @@ global func_sum, func_sub, func_mul, func_div
 func_sum:
     push rbp
     mov rbp, rsp
-    mov rax, [rbp + 4]
-    add rax, [rbp + 8]
+    mov rax, [rbp + 8]
+    add rax, [rbp + 12]
     pop rbp
     ret
 
