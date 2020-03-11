@@ -21,7 +21,10 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
+    - name: Install deps
+      run:
+        apt update && apt install lua-bit32 lua-bit32-dev nasm
     # Runs a single command using the runners shell
     - name: Test
-      run: ./build.sh test
+      run:
+        ./build.sh test
