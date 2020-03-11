@@ -5,7 +5,7 @@
 # Testado no arch linux, compilado pelo clang pois o mesmo tem o parâmetro target, o qual possibilita mais facilmente realizar a compilação 32 bits (i386)
 # O mesmo contém uma pequena suíte de testes para testar a binding no lado C e no lado Lua
 
-NASMFLAGS="-felf -DELF_TYPE"
+NASMFLAGS="-felf64 -DELF_TYPE"
 CFLAGS="-g -lc"
 
 build() {
