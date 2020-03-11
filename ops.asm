@@ -14,16 +14,16 @@ func_sum:
 func_sub:
     push rbp
     mov rbp, rsp
-    mov rax, rsp
-    sub rax, rdi
+    mov rax, rdi
+    sub rax, rsi
     pop rbp
     ret
 
 func_mul:
     push rbp
     mov rbp, rsp
-    mov rax, rsp
-    mul DWORD rdi
+    mov rax, rdi
+    mul rsi
     pop rbp
     ret
 
@@ -31,8 +31,8 @@ func_div:
     push rbp
     mov rbp, rsp
     xor rdx, rdx ; Ainda bem que o eduardo me passou essa manha
-    mov rax, rsp
-    div DWORD rdi
+    mov rax, rdi
+    div rsi
     pop rbp
     ret
 
