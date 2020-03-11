@@ -20,7 +20,7 @@ test() {
     echo "[ * ] Testando módulo c"
     ./tester
     echo "[ * ] Testando módulo lua"
-    lua32 test.lua
+    lua test.lua
 }
 
 clean() {
