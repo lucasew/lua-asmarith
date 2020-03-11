@@ -1,6 +1,6 @@
-#include "lua.h"
-#include "lualib.h"
-#include "lauxlib.h"
+#include <lua5.3/lua.h>
+#include <lua5.3/lualib.h>
+#include <lua5.3/lauxlib.h>
 
 extern int func_sum(int x, int y);
 extern int func_sub(int x, int y);
