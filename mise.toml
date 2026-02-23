@@ -1,0 +1,10 @@
+[tools]
+workspaced = "system" # Installed manually in CI or locally
+
+[tasks]
+"install" = "scripts/install_deps.sh"
+"lint" = "workspaced codebase lint"
+"fmt" = "workspaced codebase format"
+"test" = "bash build.sh test"
+"codegen" = "echo 'No codegen'"
+"ci" = { depends = ["lint", "test"] }
