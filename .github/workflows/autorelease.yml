@@ -19,12 +19,13 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: 'stable'
+          cache: false
       - name: Install workspaced
         run: |
           git clone https://github.com/lucasew/workspaced workspaced-repo
           cd workspaced-repo
           git checkout 4ac19131b55a
-          go build -o ../workspaced
+          go build -o ../workspaced ./cmd/workspaced
           cd ..
           echo "$PWD" >> $GITHUB_PATH
       - uses: jdx/mise-action@v2
